@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environments
+.venv/
+venv/
+.env
+.env.*
+
+# Packaging
+dist/
+build/
+*.egg-info/
+
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/
+
+# Data/artifacts
+*.db
+*.sqlite
+*.log
+assets/demos/*.mp4
+assets/demos/*.gif
+
+# Streamlit
+.streamlit/

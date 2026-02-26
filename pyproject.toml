@@ -1,0 +1,42 @@
+[project]
+name = "agentic-ai"
+version = "0.1.0"
+description = "CLI-first agentic AI portfolio: Ops Copilot + Analytics Agent (with minimal Streamlit UI)."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Subhra Rath" }]
+dependencies = [
+  "python-dotenv>=1.0.1",
+  "pydantic>=2.7.0",
+  "typer>=0.12.3",
+  "rich>=13.7.1",
+  "streamlit>=1.36.0",
+]
+
+[project.optional-dependencies]
+llm = ["openai>=1.35.0"]
+rag = ["chromadb>=0.5.3"]
+dev = ["pytest>=8.2.0", "ruff>=0.5.0"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = ["data", "assets"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
