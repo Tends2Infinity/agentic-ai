@@ -33,3 +33,7 @@ assets/demos/*.gif
 
 # Streamlit
 .streamlit/
+
+# Run artifacts (generated)
+runs/
+runs_test/
