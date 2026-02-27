@@ -1,0 +1,4 @@
+{"ts_ms": 1772187653026, "run_id": "6d8fce8d-be2d-4552-be0c-5c1a48ad13c1", "event_type": "plan_created", "payload": {"objective": "Echo the user input", "num_steps": 1, "steps": [{"step_id": "step_1", "tool_name": "echo", "args": {"text": "hello world"}, "rationale": "No specific operation detected; echo the input for demonstration."}]}}
+{"ts_ms": 1772187653030, "run_id": "6d8fce8d-be2d-4552-be0c-5c1a48ad13c1", "event_type": "tool_call_started", "payload": {"step_id": "step_1", "tool_name": "echo", "args": {"text": "hello world"}}}
+{"ts_ms": 1772187653033, "run_id": "6d8fce8d-be2d-4552-be0c-5c1a48ad13c1", "event_type": "tool_call_succeeded", "payload": {"step_id": "step_1", "tool_name": "echo", "output": {"echoed": "hello world"}}}
+{"ts_ms": 1772187653037, "run_id": "6d8fce8d-be2d-4552-be0c-5c1a48ad13c1", "event_type": "run_completed", "payload": {"verified": true, "verification_errors": [], "num_steps_executed": 1}}

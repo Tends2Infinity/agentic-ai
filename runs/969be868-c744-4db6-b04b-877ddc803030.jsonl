@@ -1,0 +1,4 @@
+{"ts_ms": 1772190009334, "run_id": "969be868-c744-4db6-b04b-877ddc803030", "event_type": "plan_created", "payload": {"objective": "Add 2 and 3", "num_steps": 1, "steps": [{"step_id": "step_1", "tool_name": "add_numbers", "args": {"a": 2, "b": 3}, "rationale": "User requested an addition; use the add_numbers tool."}]}}
+{"ts_ms": 1772190009336, "run_id": "969be868-c744-4db6-b04b-877ddc803030", "event_type": "tool_call_started", "payload": {"step_id": "step_1", "tool_name": "add_numbers", "args": {"a": 2, "b": 3}}}
+{"ts_ms": 1772190009337, "run_id": "969be868-c744-4db6-b04b-877ddc803030", "event_type": "tool_call_succeeded", "payload": {"step_id": "step_1", "tool_name": "add_numbers", "output": {"sum": 5}}}
+{"ts_ms": 1772190009338, "run_id": "969be868-c744-4db6-b04b-877ddc803030", "event_type": "run_completed", "payload": {"verified": true, "verification_errors": [], "num_steps_executed": 1}}
