@@ -1,0 +1,6 @@
+Onboarding SOP (v1)
+1) Validate customer domain and email.
+2) Check prior credits history.
+3) Confirm customer is greenfield.
+4) Create onboarding tasks and assign owners.
+5) Send welcome message and next steps.
