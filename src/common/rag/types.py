@@ -38,13 +38,17 @@ class Chunk:
 @dataclass(frozen=True)
 class IndexedChunk(Chunk):
     """
-    Chunk plus a sparse TF-IDF vector.
+    Chunk plus retrieval vectors.
 
-    vector is a sparse dict: term -> tf-idf weight
-    We use sparse representation because most terms are not present in a chunk.
+    tfidf_vector:
+      Sparse TF-IDF vector (term -> weight)
+    embedding_vector:
+      Dense hashed vector (list[float]) for "embeddings" backend.
+      Optional so we can ingest TF-IDF only if desired.
     """
 
-    vector: dict[str, float]
+    tfidf_vector: dict[str, float]
+    embedding_vector: list[float] | None = None
 
 
 @dataclass(frozen=True)

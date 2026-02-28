@@ -20,6 +20,7 @@ from __future__ import annotations
 import json
 import os
 
+from src.common.rag.embeddings import embed_text
 from src.common.rag.text import chunk_text
 from src.common.rag.tfidf import build_idf, vectorize
 from src.common.rag.types import IndexedChunk, RagIndex
@@ -75,8 +76,17 @@ def ingest_folder(
     indexed_chunks: list[IndexedChunk] = []
     for i, (source, ctext) in enumerate(raw_chunks):
         chunk_id = f"{source}::chunk_{i:04d}"
-        vec = vectorize(ctext, idf)
-        indexed_chunks.append(IndexedChunk(chunk_id=chunk_id, source=source, text=ctext, vector=vec))
+        tfidf_vec = vectorize(ctext, idf)
+        emb_vec = embed_text(ctext, dim=512)  # fixed dimension for reproducibility
+        indexed_chunks.append(
+            IndexedChunk(
+                chunk_id=chunk_id,
+                source=source,
+                text=ctext,
+                tfidf_vector=tfidf_vec,
+                embedding_vector=emb_vec,
+            )
+        )
 
     return RagIndex(idf=idf, chunks=indexed_chunks)
 
@@ -99,7 +109,8 @@ def save_index(index: RagIndex, path: str) -> None:
                 "chunk_id": c.chunk_id,
                 "source": c.source,
                 "text": c.text,
-                "vector": c.vector,
+                "tfidf_vector": c.tfidf_vector,
+                "embedding_vector": c.embedding_vector,
             }
             for c in index.chunks
         ],
@@ -121,7 +132,8 @@ def load_index(path: str) -> RagIndex:
             chunk_id=c["chunk_id"],
             source=c["source"],
             text=c["text"],
-            vector=c["vector"],
+            tfidf_vector=c["tfidf_vector"],
+            embedding_vector=c.get("embedding_vector"),
         )
         for c in payload["chunks"]
     ]
