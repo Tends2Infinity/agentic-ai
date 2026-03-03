@@ -1,4 +1,4 @@
-#📌 What is agentic-ai?
+# 📌 What is agentic-ai?
 
 **Agentic AI** portfolio repo (with Streamlit UI) is a minimal but production-minded Agent platform that demonstrates:
 
