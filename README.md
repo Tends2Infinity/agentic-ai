@@ -15,7 +15,7 @@ python -m venv .venv
 .venv\Scripts\pip.exe install -e ".[dev]"
 .venv\Scripts\python.exe -m pytest -q
 .venv\Scripts\python.exe -m streamlit run apps\streamlit_app.py
-
+```
 # RAG v1 (Deterministic + Injection-Aware)
 
 - Folder ingestion + chunking
