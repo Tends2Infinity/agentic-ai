@@ -101,6 +101,7 @@ Verifier
    ↓
 Structured Trace (JSONL)
 ```
+
 ### Key Modules
 | Module                  | Responsibility                           |
 | ----------------------- | ---------------------------------------- |
@@ -116,6 +117,7 @@ Structured Trace (JSONL)
 The demo console provides an interactive agent execution interface.
 
 Tabs Overview
+
 1️⃣ Results Tab
 Displays:
 - Retrieved chunks
@@ -168,6 +170,7 @@ The system detects patterns such as:
 | `tfidf`      | Sparse lexical retrieval    |
 | `embeddings` | Dense vector similarity     |
 | `hybrid`     | Combined normalized scoring |
+
 Hybrid retrieval improves robustness and relevance.
 
 
@@ -180,6 +183,7 @@ Each run generates a score (0–100) based on:
 This is not a ground-truth metric — it is an operational quality signal.
 
 ## 📂 Project Structure
+```
 agentic-ai/
 ├── apps/
 │   └── rag_demo_app.py
@@ -195,6 +199,7 @@ agentic-ai/
 ├── runs/
 ├── pyproject.toml
 └── README.md
+```
 
 ## 📈 Design Principles
 - Deterministic execution
