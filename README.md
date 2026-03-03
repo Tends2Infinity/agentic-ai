@@ -1,22 +1,19 @@
-# agentic-ai
+#📌 What is agentic-ai?
 
-CLI-first **Agentic AI** portfolio repo (with Streamlit UI) :
-- agent workflows + tool calling
+**Agentic AI** portfolio repo (with Streamlit UI) is a minimal but production-minded Agent platform that demonstrates:
+
+- Agent workflows + Controlled tool execution
 - RAG patterns (docs + retrieval + citations)
-- evaluation harness (golden tests)
-- guardrails (tool allowlists, step limits, redaction)
-- reproducible DX (Makefile + CI)
+- Hybrid retrieval (TF-IDF + embeddings)
+- Prompt-injection hygiene
+- Structured JSONL trace logging
+- Verification pipeline
+- Latency metrics & timeline visualization
+- Run comparison & evaluation scoring
 
-## Quickstart (Windows)
+It is designed to showcase how enterprise-grade agents should be built — not just prompt wrappers.
 
-```powershell
-python -m venv .venv
-.venv\Scripts\pip.exe install -U pip
-.venv\Scripts\pip.exe install -e ".[dev]"
-.venv\Scripts\python.exe -m pytest -q
-.venv\Scripts\python.exe -m streamlit run apps\streamlit_app.py
-```
-# RAG v1 (Deterministic + Injection-Aware)
+## RAG v1 (Deterministic + Injection-Aware)
 
 - Folder ingestion + chunking
 - TF-IDF vectorization
@@ -72,27 +69,24 @@ python -m src.common.rag.cli ingest \
 
 # 5. Launch Streamlit demo
 python -m streamlit run apps/rag_demo_app.py
+```
 
+# 📌 Contents
+- 🏗 Architecture Overview
+- 🧪 Streamlit Demo Console
+- 🔐 Prompt Injection Hygiene
+- 🔎 Retrieval Backends
+- 📊 Evaluation Score
+- 📂 Project Structure
+- 📈 Design Principles
+- 🚀 Roadmap
+- 📜 License
+- 👤 Author
 
-📌 What is agentic-ai?
-
-agentic-ai is a minimal but production-minded Agent platform that demonstrates:
-
-- Controlled tool execution
-- Hybrid retrieval (TF-IDF + embeddings)
-- Prompt-injection hygiene
-- Structured JSONL trace logging
-- Verification pipeline
-- Latency metrics & timeline visualization
-- Run comparison & evaluation scoring
-
-It is designed to showcase how enterprise-grade agents should be built — not just prompt wrappers.
-
-🏗 Architecture Overview
+## 🏗 Architecture Overview
 Core Runtime
-
-Planner → Executor → Verifier
-
+    Planner → Executor → Verifier
+```
 User Input
    ↓
 Planner
@@ -106,8 +100,8 @@ RAG Tool (Hybrid Retrieval)
 Verifier
    ↓
 Structured Trace (JSONL)
-
-# Key Modules
+```
+### Key Modules
 | Module                  | Responsibility                           |
 | ----------------------- | ---------------------------------------- |
 | `AgentRunner`           | Executes plan step-by-step               |
@@ -117,7 +111,7 @@ Structured Trace (JSONL)
 | `logging.py`            | Structured JSONL event logging           |
 | `rag_demo_app.py`       | Observability & evaluation console       |
 
-🧪 Streamlit Demo Console
+## 🧪 Streamlit Demo Console
 
 The demo console provides an interactive agent execution interface.
 
@@ -155,20 +149,20 @@ Displays:
 - Evaluation score
 - Download trace files
 
-🔐 Prompt Injection Hygiene
+## 🔐 Prompt Injection Hygiene
 The system detects patterns such as:
 - "Ignore previous instructions"
 - "Reveal system prompt"
 - "Expose API keys"
 
 
-# Modes:
+### Modes:
 | Mode           | Behavior                           |
 | -------------- | ---------------------------------- |
 | `warn`         | Returns chunk but flags warnings   |
 | `trusted_only` | Filters suspicious chunks entirely |
 
-🔎 Retrieval Backends
+## 🔎 Retrieval Backends
 | Backend      | Description                 |
 | ------------ | --------------------------- |
 | `tfidf`      | Sparse lexical retrieval    |
@@ -177,7 +171,7 @@ The system detects patterns such as:
 Hybrid retrieval improves robustness and relevance.
 
 
-📊 Evaluation Score (Explainable)
+## 📊 Evaluation Score (Explainable)
 Each run generates a score (0–100) based on:
 - Reliability (verification success)
 - Safety (warnings count)
@@ -185,7 +179,7 @@ Each run generates a score (0–100) based on:
 - Usefulness (non-empty results)
 This is not a ground-truth metric — it is an operational quality signal.
 
-📂 Project Structure
+## 📂 Project Structure
 agentic-ai/
 ├── apps/
 │   └── rag_demo_app.py
@@ -202,7 +196,7 @@ agentic-ai/
 ├── pyproject.toml
 └── README.md
 
-📈 Design Principles
+## 📈 Design Principles
 - Deterministic execution
 - Strict tool governance
 - Trace-first architecture
@@ -210,7 +204,7 @@ agentic-ai/
 - Transparent retrieval
 - Injection-aware context handling
 
-🚀 Roadmap
+## 🚀 Roadmap
 - Multi-step agents (retrieve → synthesize → verify)
 - Real embedding provider integration
 - Evaluation harness (gold answers)
@@ -218,16 +212,15 @@ agentic-ai/
 - Structured answer generation
 - CI-based regression testing
 
-📜 License
+## 📜 License
 - MIT License
 
-👤 Author
+## 👤 Author
 Subhra Rath
 Analytics | AI Strategy | Agentic Systems
 
 
 
-```markdown
 ## 📸 Screenshots
 
 ### Results Tab
